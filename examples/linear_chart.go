@@ -17,7 +17,7 @@ func main() {
 	testChart.AddHeader("amount", "number")
 	testChart.SetCurvedLine()
 
-	testChart.LoadCSV("/home/ricardovegas/go/src/github.com/rvegas/gchart/weight.csv", false)
+	testChart.LoadCSV("./resources/data.csv", false)
 
 	result, err := testChart.Generate()
 	check(err)
@@ -26,7 +26,7 @@ func main() {
 	fmt.Fprint(file, result)
 
 	fmt.Println("Done")
-	//exec.Command("xdg-open", fmt.Sprintf("file:///%s", file.Name())).Start()
+	exec.Command("xdg-open", fmt.Sprintf("file:///%s", file.Name())).Start()
 }
 
 // fatal if there is an error
