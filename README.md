@@ -2,6 +2,8 @@
 
 **gChart** is an experimental Go Package that allows you to generate html-based charts.
 
+![ghcart demo](gchart.png)
+
 **gChart** uses [Google Charts](https://developers.google.com/chart/interactive/docs/reference) 
 in order to render several types of charts (for now only column, linear and area charts are 
 supported).
