@@ -4,6 +4,7 @@ import (
 	"github.com/rvegas/gchart"
 	"fmt"
 	"os"
+	"os/exec"
 )
 
 func main() {
@@ -17,7 +18,9 @@ func main() {
 	testChart.AddHeader("amount", "number")
 	testChart.SetCurvedLine()
 
-	testChart.LoadCSV("./resources/data.csv", false)
+	pwd, _ := os.Getwd()
+	//TODO: Make this friendlier. If it gives you trouble, just feed the abs path in your fs
+	testChart.LoadCSV(pwd + "/github.com/rvegas/gChart/examples/resources/data.csv", false)
 
 	result, err := testChart.Generate()
 	check(err)
