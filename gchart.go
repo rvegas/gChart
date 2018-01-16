@@ -19,6 +19,7 @@ var HeaderTypes = map[string]bool{
 	"number": true,
 }
 
+// Main struct to hold chart information
 type gchart struct {
 	headers   []dataHeader
 	data      []dataRow
@@ -29,15 +30,18 @@ type gchart struct {
 	extraOpts map[string]string
 }
 
+// Struct for data rows
 type dataRow struct {
 	Values []interface{}
 }
 
+// Struct for data headers
 type dataHeader struct {
 	Name string
 	Type string
 }
 
+// A gChart MUST always be initiated first
 func initiate() *gchart {
 	newChart := &gchart{}
 	newChart.width = 900
@@ -68,6 +72,7 @@ func NewColumnChart() *gchart {
 	return newChart
 }
 
+// Generates the header string for the chart
 func (c gchart) generateHeaders() string {
 	headers := ""
 	for _, header := range c.headers {
@@ -76,6 +81,7 @@ func (c gchart) generateHeaders() string {
 	return headers
 }
 
+// Generates the rows string for the chart
 func (c gchart) generateRows() string {
 	rows := "\t\tdata.addRows([\n"
 
@@ -101,10 +107,12 @@ func (c gchart) generateRows() string {
 	return rows
 }
 
+// Executes the drawing command in the html file
 func (c gchart) generateDraw() string {
 	return fmt.Sprintf("%s%s%s", resources.DRAW_BEGIN, c.style, resources.DRAW_END)
 }
 
+// Generates default and useful html chart options
 func (c gchart) generateOptions() string {
 	options := ""
 	options += fmt.Sprintf("\t\ttitle:'%s',\n", c.title)
