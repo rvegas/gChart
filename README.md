@@ -6,6 +6,10 @@
 in order to render several types of charts (for now only column, linear and area charts are 
 supported).
 
+## Examples and Usage
+
+Go to [examples/line_chart.go](examples/line_chart.go) to see a simple example.
+
 ## Roadmap - Next features
 
 - Add tests
