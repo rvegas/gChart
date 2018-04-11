@@ -1,10 +1,7 @@
 package resources
 
-const HEADER_BEGIN = `
-<html>
-  <head>
-    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
-    <script type="text/javascript">
+const LOCAL_LIB = `
+<script type="text/javascript">
 
 (function(){var aa="\n//# sourceURL=",ba='<script type="text/javascript" src="',b="American Samoa",ca="Antigua and Barbuda",k="Bolivia",p="Bosna i Hercegovina",q="Botswana",da="British Virgin Islands",ea="Cayman Islands",fa="Christmas Island",ga="Falkland Islands",r="Ghana",ha="Guin\u00e9e \u00e9quatoriale",ia="Guyane fran\u00e7aise",t="Honduras",u="Indonesia",v="Itoophiyaa",ja="Kalaallit Nunaat",w="Kiribati",ka="LocaleNameConstants",la="Luxembourg",ma="Madagascar",na="Marshall Islands",x="Micronesia",oa="Moldova, Republica",
 pa="Nederlandse Antillen",qa="New Zealand",y="Nigeria",ra="Norfolk Island",sa="Northern Mariana Islands",ta="Nouvelle-Cal\u00e9donie",z="Papua New Guinea",ua="Paraguay",va="Philippines",wa="Polyn\u00e9sie fran\u00e7aise",xa="Puerto Rico",za="Rep\u00fablica Dominicana",A="Rwanda",Aa="Rywvaneth Unys",Ba="R\u00e9publique centrafricaine",Ca="R\u00e9publique d\u00e9mocratique du Congo",Da="Saint Kitts and Nevis",Ea="Saint Vincent and the Grenadines",Fa="Saint-Pierre-et-Miquelon",Ga="Serbia and Montenegro",
@@ -158,7 +155,15 @@ google.a.c.load=function(a,c){if(google.a.c.S)google.a.c.U(function(){google.a.c
 d(a,c);e(f)},google.a.c.ea?(google.a.c.ea=!1,google.a.c.zb(google.a.c.i.prefix+"/"+a+"/loader.js",window.document,e)):e();else{if(!google.a.c.ea)throw Error("google.charts.load() cannot be called more than once with version 44 or earlier.");google.a.c.ea=!1;google.a.c.jd(a,c);google.a.c.log("google.charts.load version "+a);window.google=window.google||{};google.visualization=google.visualization||{};google.visualization.ModulePath=google.a.c.i.prefix;google.visualization.CssPath=google.a.c.i.css_prefix.replace($a,
 google.a.c.i.prefix).replace(bb,google.a.c.I);google.a.c.window=window;google.a.c.Fc=document;var g=c.packages;g&&0!==g.length||(g=["default"]);google.a.c.U(c.callback);google.a.c.Wc(g,function(){google.a.c.Zc(g,f)})}}};google.a.c.od=function(a){if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a);else{var c=window.onload;window.onload=function(d){c&&c(d);a()}}};google.a.c.Jb=document&&document.readyState===K;
 google.a.c.od(function(){google.a.c.Jb=!0;google.a.c.Na()});google.a.c.Na=function(){!google.a.c.S&&google.a.c.Jb&&google.a.c.xc()};google.a.c.Ca=[];google.a.c.U=function(a){a&&google.a.c.Ca.push(a);google.a.c.S||google.a.c.Na()};google.a.c.xc=function(){var a=google.a.c.Ca;for(google.a.c.Ca=[];0<a.length;)a.shift()()};google.a.c.Qa=function(a,c){google.a.c.ed(a,c)};if(Z.N(Xa))throw Error("Google Charts loader.js can only be loaded once.");google.a.load=function(){var a=0;"visualization"===arguments[a]&&a++;var c="current";Z.h(arguments[a])&&(c=arguments[a],a++);var d={};arguments.length>a&&(d=arguments[a]);google.a.c.load(c,d)};google.a.U=function(a){google.a.c.U(a)};google.a.Qa=function(a,c){google.a.c.Qa(a,c)};Z.Aa(Xa,google.a.load);Z.Aa("google.charts.setOnLoadCallback",google.a.U);Z.Aa("google.charts.packageLoadedCallback",google.a.Qa);}).call(this);
+</script>
+`
 
+const HEADER_BEGIN = `
+<html>
+  <head>
+    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
+    ` + LOCAL_LIB + `
+	<script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 `

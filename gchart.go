@@ -2,14 +2,15 @@ package gchart
 
 import (
 	"encoding/csv"
+	"errors"
 	"fmt"
-	"github.com/rvegas/gchart/resources"
 	"io"
 	"os"
 	"strconv"
 	"strings"
 	"time"
-	"errors"
+
+	"github.com/rvegas/gchart/resources"
 )
 
 // HeaderTypes are the available and compatible data types for values in each column
@@ -120,7 +121,11 @@ func (c gchart) generateOptions() string {
 	options += fmt.Sprintf("\t\theight:%d,\n", c.height)
 
 	for opt, value := range c.extraOpts {
-		options += fmt.Sprintf("\t\t%s:'%s',\n", opt, value)
+		if opt == "vAxis" {
+			options += fmt.Sprintf("\t\t%s:%s,\n", opt, value)
+		} else {
+			options += fmt.Sprintf("\t\t%s:'%s',\n", opt, value)
+		}
 	}
 
 	return options
@@ -189,6 +194,12 @@ func (c *gchart) SetCurvedLine() error {
 		return errors.New("incompatible chart style, it MUST be a line chart")
 	}
 	c.extraOpts["curveType"] = "function"
+	return nil
+}
+
+// SetCurvedLine modifies the current gChart Line Chart with a curved line style
+func (c *gchart) SetLogarithmicVerticalAxis() error {
+	c.extraOpts["vAxis"] = "{scaleType: 'log'}"
 	return nil
 }
 
